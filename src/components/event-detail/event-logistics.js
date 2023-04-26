@@ -4,7 +4,7 @@ import LogisticsItem from './logistics-item';
 import EventContent from "./event-content";
 
 function EventLogistics(props) {
-  const { date, address, image, imageAlt, description } = props;
+  const { date, address, image, imageAlt, description, title } = props;
 
   const humanReadableDate = new Date(date).toLocaleDateString('en-US', {
     day: 'numeric',
@@ -19,6 +19,7 @@ function EventLogistics(props) {
         <img src={`/${image}`} alt={imageAlt}/>
       </div>
       <ul className="w-1/2 md:w-1/3">
+        <h2 className='text-4xl font-semibold pb-5'>{title}</h2>
         <LogisticsItem icon={DateIcon}>
           <time>{humanReadableDate}</time>
         </LogisticsItem>
