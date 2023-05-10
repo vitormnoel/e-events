@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 import { getAllEvents } from "../../helper/api_util";
 import EventList from "../../src/components/events/event_list";
@@ -15,6 +16,13 @@ function AllEventsPage(props) {
     }
 
     return <section className="dark:bg-slate-800 py-36">
+        <Head>
+        <title>Events</title>
+        <meta
+          name="description"
+          content="Find a lot of great events that allow you to evolve..."
+        />
+      </Head>
         <EventSearch onSearch={findEventsHandler}/>
         <EventList items={props.events}/>
     </section>

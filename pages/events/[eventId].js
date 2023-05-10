@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 import { getEventById, getFeaturedEvents } from "../../helper/api_util";
 import EventSummary from "../../src/components/event-detail/event-summary";
 import EventLogistics from "../../src/components/event-detail/event-logistics";
@@ -15,6 +17,13 @@ function EventDetailPage(props) {
 
   return (
     <section className="dark:bg-slate-800 pb-28">
+      <Head>
+        <title>{event.title}</title>
+        <meta
+          name="description"
+          content={event.description}
+        />
+      </Head>
       <EventSummary title={event.title} />
       <EventLogistics
         title={event.title}

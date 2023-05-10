@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 import useSWR from "swr";
 
 import { getFilteredEvents } from "../../helper/api_util";
@@ -57,6 +58,13 @@ function FilteredEventsPage(props) {
 
   return (
     <section className="dark:bg-slate-800 h-[100vh] py-36">
+      <Head>
+        <title>Filtered Events</title>
+        <meta
+          name="description"
+          content="Find a lot of great events that allow you to evolve..."
+        />
+      </Head>
       <ResultsTitle date={date} />
       <EventList items={filteredEvents} />
     </section>
